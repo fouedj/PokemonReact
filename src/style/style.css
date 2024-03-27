@@ -210,7 +210,10 @@ z-index: 999;}
 	color: #fff;
 	border-color: #5a88ca;
 }
-
+.container{
+  align-items: center;
+  justify-content: center;
+}
 /*------------------
 [4. Slidershow]
 ------------------*/
