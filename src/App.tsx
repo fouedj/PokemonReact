@@ -7,24 +7,30 @@ import { Provider } from "react-redux";
 import store from "./store";
 import PokemonList from "./pages/pokemon-list";
 import PokemonDetail from "./pages/pokemon-detail";
+import {BrowserRouter ,Route,Routes } from "react-router-dom";
+
+
 
 function App() {
-  return (
-    <Provider store={store}>
-      <div className="App">
-        <div>
-          <div>
-            <Header title={title?.pokemon} />
-            <PokemonList />
-          </div>
-          <PokemonDetail />
-        </div>
-        <Footer
+  return ( 
+     <div className="App"> 
+    <Provider store={store}>   
+      <BrowserRouter>
+        <Header title={title?.pokemon} />
+            <Routes>
+            <Route path="/" Component={PokemonList}/>
+            </Routes>
+            <Routes>
+              <Route path="/pokemon/:id" Component={PokemonDetail}/>
+            </Routes>
+         <Footer
           container={container?.footerContainer}
           title={title?.footerTitle}
         />
-      </div>
-    </Provider>
+  </BrowserRouter>
+      
+    </Provider>  
+     </div>
   );
 }
 
