@@ -6,9 +6,12 @@ import {
 } from "../../features/pokemonSlice";
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 
 const PokemonDetail: React.FC = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const selectedPokemon = useSelector(selectSelectedPokemon);
   const navigate = useNavigate();
@@ -33,7 +36,7 @@ const PokemonDetail: React.FC = () => {
             <div className="col-md-12">
               <div className="product-content-right">
                 <div className="product-breadcroumb">
-                <button className="add_to_cart_button" onClick={() => navigate("/")}>Back</button>
+                <button className="add_to_cart_button" onClick={() => navigate("/")}>{t('pokemonDetail.back')}</button>
                 </div>
 
                 <div className="row">
@@ -52,12 +55,15 @@ const PokemonDetail: React.FC = () => {
                     <div className="product-inner">
                       <h2 className="product-name">id: {id}</h2>
                       <div className="product-inner-price">
-                        <ins>height: {height}</ins>
-                        <ins>weight: {weight}</ins>
+                        <ins>{t('pokemonDetail.height')}: {height}</ins>
+                        <ins>{t('pokemonDetail.width')}: {weight}</ins>
                       </div>
 
                       <div className="product-inner-category">
-                        <h2>{name}</h2>
+                      <div style={{display:"flex",alignItems:"center",flexDirection:"row"}}>
+                      <h2>{t('pokemonDetail.name')}: </h2>
+                        <h3> {name}</h3>
+                      </div>
                         <p style={{display:"flex"}}>
                           Types:
                           {types.map((type: any) =><div style={{marginLeft:10}}>{type.type.name},</div> )}

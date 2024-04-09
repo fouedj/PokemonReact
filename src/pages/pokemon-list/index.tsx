@@ -11,9 +11,11 @@ import {
   selectCurrentPage,
   setPage,
 } from "../../features/pokemonSlice";
+import { useTranslation } from "react-i18next";
 
 const PokemonList: React.FC = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   React.useEffect(() => {
     dispatch(fetchPokemons());
   }, [dispatch]);
@@ -76,7 +78,7 @@ const PokemonList: React.FC = () => {
                   onClick={handlePrevPage}
                 >
                   <a className="page-link" href="#">
-                    Previous
+                  {t("pokemonDetail.prev")}
                   </a>
                 </li>
                 {/* {renderPageNumbers()} */}
@@ -87,7 +89,7 @@ const PokemonList: React.FC = () => {
                 </li>
                 <li className="page-item" onClick={handleNextPage}>
                   <a className="page-link" href="#">
-                    Next
+                 {t("pokemonDetail.next")}
                   </a>
                 </li>
               </ul>

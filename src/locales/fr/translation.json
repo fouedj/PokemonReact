@@ -1,0 +1,13 @@
+{
+  "pokemonDetail": {
+    "title": "Détail du Pokémon",
+    "description": "Description du Pokémon",
+    "id": "ID",
+    "height": "Hauteur",
+    "width": "Largeur",
+    "name":"Nom",
+    "back":"retour",
+    "prev":"Précédent",
+    "next":"Suivant"
+  }
+}

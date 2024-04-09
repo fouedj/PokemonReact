@@ -8,15 +8,16 @@ import store from "./store";
 import PokemonList from "./pages/pokemon-list";
 import PokemonDetail from "./pages/pokemon-detail";
 import {BrowserRouter ,Route,Routes } from "react-router-dom";
-
+import LanguageSelector from "./components/LanguageSelector";
 
 
 function App() {
   return ( 
      <div className="App"> 
-    <Provider store={store}>   
+         <Provider store={store}>   
       <BrowserRouter>
         <Header title={title?.pokemon} />
+        <LanguageSelector/>
             <Routes>
             <Route path="/" Component={PokemonList}/>
             </Routes>
@@ -30,6 +31,8 @@ function App() {
   </BrowserRouter>
       
     </Provider>  
+     
+   
      </div>
   );
 }
